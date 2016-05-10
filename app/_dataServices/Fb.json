@@ -1,0 +1,51 @@
+
+{
+  channels: [
+    {
+      $id: $id,
+      type: 'wcArray',
+      routing: {
+        type: 'repeat'
+      },
+      children: [
+        '1',
+        '2'
+      ]
+    },
+    {
+      $id: $id,
+      type: 'slide',
+      data: {
+        title: {
+          es: 'Personalizado',
+          en: 'Personalized'
+        },
+        description: {
+          es: 'Tú eres único. Por eso mereces una página única que te represente. Todas nuestras páginas son hechas desde cero y totalmente personalizadas.<br>También tienen un administrador de contenidos intuitivo que te permite cambiar fácilmente la información de tu página. Si sabes usar Word, te sentirás como en casa.'
+        },
+        img: {
+          src: 'images/personalized.png'
+        }
+      },
+      childChannel: '3',
+      display: {
+        layout: {
+          transition: {
+            type: 'soleil',
+            mode: 'scroll'
+          }
+        },
+        styles: {
+          continuous: {
+            fontSize: 0.75
+          },
+          discrete: {
+            color: '#fff',
+            backgroundColor: '#f44336'
+          }
+        }
+      }
+    }
+  ],
+  root: '0'
+}

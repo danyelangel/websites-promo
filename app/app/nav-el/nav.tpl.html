@@ -1,0 +1,32 @@
+<md-toolbar ng-if="true" class="toolbar" md-whiteframe="3" layout-align="center center"
+        ng-class="['l']">
+  <div class="md-toolbar-tools" style="max-width: 1024px;">
+    <img src="images/webcat-logo.png">
+    <h3 ng-class="['l']">
+      <span ng-bind-html="$ctrl.html($ctrl.title)"></span>
+    </h3>
+    <div flex></div>
+    <md-button class="md-icon-button" aria-label="English"
+               ng-click="$ctrl.lang = 'en'"
+               ng-disabled="$ctrl.lang === 'en'">
+      En
+    </md-button>
+    <md-button class="md-icon-button" aria-label="Español"
+               ng-click="$ctrl.lang = 'es'"
+               ng-disabled="$ctrl.lang === 'es'">
+      Es
+    </md-button>
+    <md-menu md-theme="bright" md-position-mode="target-right target">
+      <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+        <md-icon md-menu-origin><i class="material-icons">more_vert</i></md-icon>
+      </md-button>
+      <md-menu-content width="2">
+        <md-menu-item ng-repeat="item in $ctrl.menu">
+          <md-button ng-href="#{{item.hash}}" style="color: #fff">
+            {{item.title[$ctrl.lang]}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div>
+</md-toolbar>

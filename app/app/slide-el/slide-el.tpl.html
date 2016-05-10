@@ -1,0 +1,82 @@
+<div ng-style="$ctrl.wcData.styles" 
+     layout="row" layout-align="center center"
+     class="slide-wrapper"
+     ng-class="['l']">
+  
+  <div sn-skrollr
+       data-140p-bottom="transform: translateY(-100vh)" 
+       data-center="transform: translateY(0vh)"
+       data--140p-top="transform: translateY(100vh)"
+       
+       ng-class="{'background-blur': !$ctrl.wcData.background.preventBlur, background: $ctrl.wcData.background.preventBlur}"
+       ng-style="{backgroundImage: 'url('+$ctrl.wcData.background.src+')'}">
+  </div>
+  <div layout-sm="column"
+       layout-xs="column"
+       layout-gt-sm="row"
+       flex-sm="50"
+       flex-sm="70"
+       flex-xs="100"
+       layout-margin
+       layout-align="space-between center"
+       layout-wrap
+       class="inner-slide">
+    
+    <div flex="nogrow"
+         flex-gt-sm="45"
+         layout="column" 
+         flex-order="2"
+         flex-order-gt-sm="0"
+         layout-align="{{$ctrl.layoutAlign}}" 
+         layout-padding
+         ng-if="$ctrl.wcData.description">
+      
+      <h1>{{$ctrl.wcData.title[$ctrl.wcLang]}}</h1>
+      <div class="separator" 
+           ng-style="{background: $ctrl.wcData.styles.color}"
+           ng-if="$ctrl.wcData.title"></div>
+      <p ng-bind-html="$ctrl.html($ctrl.wcData.description[$ctrl.wcLang])"></p>
+      
+    </div>
+    
+    <div flex-gt-sm="45"
+         layout="column" 
+         layout-align-gt-sm="center end"
+         layout-align="center center"
+         layout-padding
+         ng-if="$ctrl.wcData.img">
+      <figure>
+        <img ng-src="{{$ctrl.wcData.img.src}}" ng-class="{'md-whiteframe-4dp': $ctrl.wcData.img.depth}">
+        <figcaption>{{$ctrl.wcData.img.caption[$ctrl.wcLang]}}</figcaption>
+      </figure>
+    </div>
+    
+    <separator flex-gt-sm="100" 
+               layout-gt-sm="row"
+               layout="column"
+               layout-align="start start"
+               flex-order="3"
+               flex-order-gt-sm="1"
+               ng-if="$ctrl.wcData.children">
+      <wc-repeater flex-gt-sm="45"
+                   layout="column" 
+                   layout-padding
+                   ng-if="$ctrl.wcData.children"
+                   ng-repeat="card in $ctrl.wcData.children">
+
+        <card-el wc-data="card.data" 
+                 wc-display="$ctrl.extend($ctrl.wcData.display, card.display)"
+                 wc-lang="$ctrl.lang"
+                 style="font-size: 1em"
+                 layout="column">
+          <h1 style="font-size: 1.5em;text-transform: capitalize;border-bottom: 1px solid #fff;">{{card.title[$ctrl.wcLang]}}</h1>
+          <p ng-bind-html="$ctrl.html(card.description[$ctrl.wcLang])"></p>
+        </card-el>
+
+      </wc-repeater>
+    </separator>
+  </div>
+  <div class="background-caption">
+    <figcaption>{{$ctrl.wcData.background.caption[$ctrl.wcLang]}}</figcaption>
+  </div>
+</div>

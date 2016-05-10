@@ -1,0 +1,32 @@
+<nav-el title="$ctrl.title[$ctrl.lang]" lang="$ctrl.lang" menu="$ctrl.menu"></nav-el>
+<div layout="column"
+     ng-class="['l']"
+     class="splash-wrapper">
+  <div sn-skrollr
+       style="transform: translateY(0vh)"
+       data-center="transform: translateY(0vh); opacity: 1"
+       data--100p-top="transform: translateY(60vh); opacity: 0.3"
+       class="splash" 
+       layout="column" layout-align="center center" layout-padding>
+    <div class="background"
+         ng-style="{backgroundImage: 'url(images/cover.jpg)', filter: 'none'}">
+    </div>
+    <div layout="column"
+         layout-align="center center">
+    <h1 ng-bind-html="$ctrl.html($ctrl.header[$ctrl.lang])"></h1>
+    <div class="separator" style="background-color: #fff"></div>
+    <p style="text-align: center" ng-bind-html="$ctrl.html($ctrl.intro[$ctrl.lang])"></p>
+    <p style="text-align: right; margin: 0"></p>
+      <i class="material-icons down-arrow">keyboard_arrow_down</i>
+    </div>
+  </div>
+  
+  <div ng-repeat="slide in $ctrl.slides">
+    <slide-el ng-if="slide.type !== 'nav'" wc-data="slide" slide-id="$index" wc-lang="$ctrl.lang"></slide-el>
+    <div ng-if="slide.type === 'nav'" id="{{slide.hash}}"></div>
+  </div>
+    
+  <div class="footer" style="text-align: center;">
+    <h1>Made with love by <a href="http://danielangel.co" target="_blank">Daniel Ángel</a><br><br><br>&copy; 2016</h1>
+  </div>
+</div>

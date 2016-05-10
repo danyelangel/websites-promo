@@ -1,0 +1,56 @@
+slide-el {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  position: relative;
+  p {
+    font-size: 1.25em;
+    @media (max-width: 700px) {
+      max-width: 100%;
+      font-size: 1.25em;
+      margin-top: 0.25em;
+    }
+  }
+  h1 {
+    @media (max-width: 700px) {
+      margin-top: 0;
+      margin-bottom: 0.25em;
+      font-size: 1.5em;
+    }
+  }
+  a{ 
+    font-weight: bold;
+    color: inherit !important;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+  .img-wrapper {
+    max-height: 400px;
+    min-height: 300px;
+  }
+  .inner-slide {
+    max-width: 1024px;
+//    min-height: 100vh;
+    z-index: 2;
+    @media (min-width: 960px) {
+      margin-top: 8em;
+      margin-bottom: 8em;
+    }
+  }
+  .background-caption {
+    z-index: 2;
+    position: absolute;
+    max-width: 400px;
+    left: 2em;
+    bottom: 2em;
+  }
+  .quote {
+    font-family: 'PT Serif';
+    font-style: italic;
+  }
+  .quote-author {
+    margin: 0;
+  }
+}
